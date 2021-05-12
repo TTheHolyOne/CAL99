@@ -8,6 +8,11 @@ All programs made by us refrence is my github
 Some programs were refrenced with my github
 github.com/ttheholyone (Jacobs Github)
 
+These programs are all made by us problem solving etc
+If you beg to differ reverse search our code :D 
+
+We know the code isn't the best and we fully agree to you
+But as of now I am(Jacob) is teaching Samuel Python and I am not exactly worried about it
 """
 
 import string
@@ -251,11 +256,26 @@ OPTIONS:
 
 About Cal99:
 
+Made in Python 3.8
 Developers: Sam and Jacob
+
+
+All programs made by us refrence is my github
+
+Some programs were refrenced with my github
+github.com/ttheholyone (Jacobs Github)
+
 
 Cal99 There is different Python programs you can use. Just choose a option and you may use a calculator, game and more!
 
 This is a fun project me and my friend had been working on for a hobby.
+
+
+These programs are all made by us problem solving etc
+If you beg to differ reverse search our code :D 
+
+We know the code isn't the best and we fully agree to you
+But as of now I am(Jacob) is teaching Samuel Python and I am not exactly worried about it
 
 Press enter to continue...
 
