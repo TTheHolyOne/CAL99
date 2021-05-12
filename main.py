@@ -15,23 +15,35 @@ We know the code isn't the best and we fully agree to you
 But as of now I am(Jacob) is teaching Samuel Python and I am not exactly worried about it
 """
 
-import string
-import random
-from random import randint, choice
-import sys
-import os
-import pyfiglet
-import pprint
-import colorama
-import time
-from colorama import init
-from colorama import Fore, Back, Style
+
+# Imports the modules
+
+import string # for password gen
+import random # for ran num guesser, password gen, 8ball
+from random import randint, choice # more for rannum guesser, password gen, 8ball
+import sys # for the overall program
+import os # for the overall program
+import pyfiglet # just for fun
+import pprint # just for fun
+import colorama # just for fun
+import time # slows things down
+from colorama import init # colors for the text
+from colorama import Fore, Back, Style # more colors for the text
+
 init()
 
-print("CAL99 BOOTING...")
+
+# Cool Boot Message not needed though feel free to delete it
+
+print(Fore.LIGHTGREEN_EX + "CAL99 BOOTING..." + Fore.WHITE)
+time.sleep(1)
+
+# A custom clear as os.system('cls') only works for windows 
 
 def clear():
   print("\n"*100)
+
+
 
 
 # Random number game!
@@ -72,8 +84,11 @@ def program():
 
         # Starting the game...
 
+
+    # sees if you run out of guesses or not
+
     while True:
-        if guess > guesses:
+        if guess >= guesses:
             print("Out of guesses\n:( Try again")
             input("Press enter to proceed")
             options()
@@ -87,7 +102,12 @@ def program():
                 else:
                     print("Hey! Thats not a number..!")
 
+        # ask for how many guesses some gets
+
         char = ask_for_rannumber(f"Please enter number to guess number must be {num1} - {num2}!\n")
+
+        # Sees if number is too high
+
         if char > number:
             guess += 1
             clear()
@@ -97,6 +117,9 @@ You have guessed {guess} times!
 You only have {guesses}! Be Careful!
 Please try again!
         """)
+
+      # sees if number is too low
+
         if char < number:
             guess += 1
             clear()
@@ -106,6 +129,11 @@ You have guessed {guess} times!
 You only have {guesses}! Be Careful!
 Please try again!
         """)
+
+        
+        # sees if number is right
+
+
         if char == number:
             guess += 1
             input(f"""
@@ -131,6 +159,10 @@ Press enter to proceed
 
 """)
     clear()
+
+
+    # This is the calculating
+
     opers = {
       '+': lambda a, b: a + b,
       '-': lambda a, b: a - b,
@@ -138,6 +170,11 @@ Press enter to proceed
       '*': lambda a, b: a * b,
       '**': lambda a, b: a ** b
     }
+
+
+    # This is what the user sees
+
+
     operspretty = {
     '+': 'Addition',
     '-': 'Subtraction',
@@ -145,11 +182,17 @@ Press enter to proceed
     '/': 'Divide',
     '**': 'Pow'
     }
+
+  # This makes the user the operators they can use
+
     def operschoice(operspretty):
         print("\n\nOperators to choose from:\n\n\n")
         for item, amount in operspretty.items():
             print("{} ({})".format(item, amount))
     clear()
+
+        # This is error handling for the numbers you choose to calculate
+
     while True:
             try:
                 num1 = int(input('Please choose a number: \n'))
@@ -157,7 +200,14 @@ Press enter to proceed
                 break
             except:
                 print('Please enter a valid number')
+
+
+    # shows the user the operators
+
     operschoice(operspretty)
+
+    # this asks them to choose addition subtraction Multiply divide or pow
+
     choice = input('\n\n\nPlease choose from the choices above\n')
     clear()
     if choice in opers:
@@ -171,11 +221,17 @@ Press enter to proceed
 # Tempature Convertor
 
 def tempconv():
+
+  # Options for the program
+
   char = input("""
 Enter Q to quit
 Enter C to convert Celcius into Fahrenheit
 Enter F to convert Fahrenheit into Celcius  
 """)
+
+  # There is the main program
+
   if char.lower() == 'q':
     options()
   if char.lower() == 'c':
@@ -194,17 +250,31 @@ Enter F to convert Fahrenheit into Celcius
 
 def passwordgen():
 
+  # Options for the program
+
   cq = input('Press Q to quit or C to continue')
   if cq.lower() == 'q':
     options
+
+  # If they got it here they clicked c to continue to the program
+
   if cq.lower() == 'c':
     pass
+
+  # Here it asks you for what you want in the password
+
   a = int(input('Whats the minimum amount of length the password may have?(Recommended: 8)\n'))
   b = int(input('Whats the longest your password can be?(Recommended: 32)\n'))
+
+  # Makes the password
+
   characters = string.ascii_letters + string.punctuation + string.digits
   password = "".join(choice(characters) for x in range(randint(a, b)))
+
+  # Prints the password to the console
+
   print(str('Boom! Your new password is: "' + password) + '"')
-  print(cq)
+
   input('Press enter to proceed')
   options()
 
@@ -218,6 +288,36 @@ def sorter():
   print(f'Your original string/number was \n {number}!')  
   options()
 
+
+# 8 Ball Game spelt eightballgame because python doesnt let that in there functions
+
+def eightballgame():
+
+  # Word list for all the answers it can give
+
+	words = ["Yes", 'No', 'Im not sure..', 'As I See it, yes', 'Ask again later...', 'Better not tell you now', 'Cannot Predict now..', 'Concentrate and ask again.', 'Dont count on it', 'It is certain', 'It is decidedly so that the answer is N O', 'Most likely', 'My reply is no', 'My sources say no', 'Outlook not so good', 'Outlook good', 'Reply hazy, try again', 'Signs point to yes', 'Very doubtful', 'Without a doubt', 'Yes - definitely', 'You may rely on it', 'Looks holy to me', 'Sam and Jacob agrees...', 'Sam and Jacob disagrees']
+
+  # chooses a random word from that list
+
+	ranwords = random.choice(words)
+
+  # this asks the question
+
+	ques = input('Enter the string you want the 8-ball to answer to! \n')
+	
+  # this answers the question
+
+	print(f'Your question: {ques} has been answered carefully:\n\n{ranwords}')
+
+
+# Greeting
+
+name = input("What is your name? My name is " + Fore.BLUE + "Cal99" + Fore.WHITE + "!\n")
+time.sleep(1)
+print('Nice to meet you ' + Fore.BLUE + f'{name}' + Fore.WHITE + '!')
+input("Press enter to continue\n")
+clear()
+
 def ask_for_option(message):
    while True:
        i = input(message)
@@ -228,18 +328,32 @@ def ask_for_option(message):
 
 def options():
     mainmenu = ask_for_option(Fore.LIGHTRED_EX + """
+
+Short Description:
+
 Hello this is Cal99, your game manager you can \nplay multiple games that I have stored so that \nyou can enjoy! 
+
 
 OPTIONS:
 
 1: Random Number Guessing Game 
+
 2: Calculator(Advanced)
+
 3: Tempature Convertor 
+
 4: Password Generator
+
 5: Character Sorter
+
 6: About
+
 7: Quit
+
 """)
+
+    # This goes to the program you chose in mainmenu
+
     if mainmenu == 1:
       program()
     elif mainmenu == 2:
@@ -283,6 +397,8 @@ Press enter to continue...
       options()
     elif mainmenu == 7:
       clear()
+      print(f"Sad to see you go... goodbye {name} ")
+      time.sleep(3)
       sys.exit()
     else:
       options()
