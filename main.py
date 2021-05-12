@@ -290,24 +290,34 @@ def sorter():
 
 
 # 8 Ball Game spelt eightballgame because python doesnt let that in there functions
-
+  
 def eightballgame():
 
-  # Word list for all the answers it can give
+  # all the answers it can answer too
 
-	words = ["Yes", 'No', 'Im not sure..', 'As I See it, yes', 'Ask again later...', 'Better not tell you now', 'Cannot Predict now..', 'Concentrate and ask again.', 'Dont count on it', 'It is certain', 'It is decidedly so that the answer is N O', 'Most likely', 'My reply is no', 'My sources say no', 'Outlook not so good', 'Outlook good', 'Reply hazy, try again', 'Signs point to yes', 'Very doubtful', 'Without a doubt', 'Yes - definitely', 'You may rely on it', 'Looks holy to me', 'Sam and Jacob agrees...', 'Sam and Jacob disagrees']
+  words = ['Yes', 'No', 'Im not sure...', 'As I see it, yes', 'Ask again later..', 'Better not tell you', 'Cannot Predict now..', 'Concentrate and ask again.', 'Dont count on it..', 'It is certain', 'It is decidedly so that the answser is N O', 'Most likely', 'M reply is no', 'My sources say no', 'Outlook not so good', 'Outlook good', 'Reply hazy, try again', 'Signs point to yes', 'Very doubtful', 'Without a doubt', 'Yes - Definitely','You may rely on it']
 
-  # chooses a random word from that list
+  # Chooses a random word
 
-	ranwords = random.choice(words)
+  ranwords = random.choice(words)
 
-  # this asks the question
+  # Asks question
 
-	ques = input('Enter the string you want the 8-ball to answer to! \n')
-	
-  # this answers the question
+  ques = input('Enter the string you want the 8Ball to answer too! \n')
+  
+  # Answers question
+  clear()
+  print("Thinking...\n\n")
+  time.sleep(2)
 
-	print(f'Your question: {ques} has been answered carefully:\n\n{ranwords}')
+  print(Fore.LIGHTCYAN_EX + 'Your question: \n' + Fore.LIGHTRED_EX + f'{ques}' + Fore.LIGHTMAGENTA_EX + f'\nhas been answered carefully:\n\n{ranwords}\n')
+
+  # goes back to main menu
+
+  input('Press enter to quit')
+  clear()
+  options()
+
 
 
 # Greeting
@@ -326,6 +336,10 @@ def ask_for_option(message):
        else:
         print("That's not a number!")
 
+
+# Options for the program with fun colors!
+
+
 def options():
     mainmenu = ask_for_option(Fore.LIGHTRED_EX + """
 
@@ -333,9 +347,13 @@ Short Description:
 
 Hello this is Cal99, your game manager you can \nplay multiple games that I have stored so that \nyou can enjoy! 
 
+"""
+
++ Fore.LIGHTGREEN_EX + """
 
 OPTIONS:
 
+""" + Fore.LIGHTYELLOW_EX + """
 1: Random Number Guessing Game 
 
 2: Calculator(Advanced)
@@ -346,9 +364,12 @@ OPTIONS:
 
 5: Character Sorter
 
-6: About
+6: 8Ball Game 
 
-7: Quit
+7: About
+"""
++ Fore.LIGHTRED_EX + """
+8: Quit
 
 """)
 
@@ -365,6 +386,8 @@ OPTIONS:
     elif mainmenu == 5:
       sorter()
     elif mainmenu == 6:
+      eightballgame()
+    elif mainmenu == 7:
       clear()
       input("""
 
@@ -394,8 +417,10 @@ But as of now I am(Jacob) is teaching Samuel Python and I am not exactly worried
 Press enter to continue...
 
 """)
+
+# sad to see you go :(
       options()
-    elif mainmenu == 7:
+    elif mainmenu == 8:
       clear()
       print(f"Sad to see you go... goodbye {name} ")
       time.sleep(3)
@@ -406,5 +431,7 @@ options()
 
   
 # Should never show unless a error happened
+
+# Prints shutting down if a error happens
 
 print("\n\n\n\n\n\n\n\n\n\nShutting down")
