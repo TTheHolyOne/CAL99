@@ -1,4 +1,6 @@
 """
+DISCORD: TTHEHOLYONE#1642
+
 Samuel and Jacob created this program
 Made in Python 3.8
 This program may include calculator etc
@@ -20,11 +22,11 @@ But as of now I am(Jacob) is teaching Samuel Python and I am not exactly worried
 
 import string # for password gen
 import random # for ran num guesser, password gen, 8ball
-from random import randint, choice # more for rannum guesser, password gen, 8ball
+from random import randint, choice # more for rannum guesser, password gen, 8ball, dice roll
 
 
 # If you are running this program via repl.it please go into shell and enter this:
-#    pip install google_trans_new
+#    pip install google_trans_new    in shell
 
 from google_trans_new import google_translator # for translator
 
@@ -44,6 +46,28 @@ init()
 # Cool Boot Message not needed though feel free to delete it
 
 print(Fore.LIGHTGREEN_EX + "CAL99 BOOTING..." + Fore.WHITE)
+print(r"""
+
+ _____ _   _ _____ _   _ _____ _   __   _______ _   _ _____                                  
+|_   _| | | |  ___| | | |  _  | |  \ \ / |  _  | \ | |  ___|                                 
+  | | | |_| | |__ | |_| | | | | |   \ V /| | | |  \| | |__                                   
+  | | |  _  |  __||  _  | | | | |    \ / | | | | . ` |  __|                                  
+  | | | | | | |___| | | \ \_/ | |____| | \ \_/ | |\  | |___                                  
+  ___ \_| |_______\_| |_/\___/\_____/\_/  \___/\_| \_\____/                                  
+ / _ \| \ | |  _  \                                                                          
+/ /_\ |  \| | | | |                                                                          
+|  _  | . ` | | | |                                                                          
+| | | | |\  | |/ /                                                                           
+\_____\_________/___     _____ _____ _____    ___ ______ _   _  ___  _   _ _____ ___________ 
+/  ___|/ _ \|  \/  |    /  __ |  _  |  _  |  / _ \|  _  | | | |/ _ \| \ | /  __ |  ___|  _  \
+\ `--./ /_\ | .  . |    | /  \| |_| | |_| | / /_\ | | | | | | / /_\ |  \| | /  \| |__ | | | |
+ `--. |  _  | |\/| |    | |   \____ \____ | |  _  | | | | | | |  _  | . ` | |   |  __|| | | |
+/\__/ | | | | |  | |    | \__/.___/ .___/ / | | | | |/ /\ \_/ | | | | |\  | \__/| |___| |/ / 
+\____/\_| |_\_|  |_/     \____\____/\____/  \_| |_|___/  \___/\_| |_\_| \_/\____\____/|___/  
+                                                                                             
+                                                                                             
+
+""")
 time.sleep(1)
 
 # A custom clear as os.system('cls') only works for windows 
@@ -525,6 +549,21 @@ def storygame():
   input("Press enter to quit..")
   options()
 
+
+# Dice Roll
+
+def dice():
+    number = input("Press enter to roll!")
+    rannumber = random.randint(1, 6) # 1 - 6
+    print("Rolling the dice...\n")
+    time.sleep(1)
+    clear()
+    print(f'The Dice Rolled: {rannumber}')
+    input("Press enter to quit")
+    clear()
+    options()
+
+
 # Greeting
 
 name = input("What is your name? My name is " + Fore.BLUE + "Cal99" + Fore.WHITE + "!\n")
@@ -575,10 +614,12 @@ OPTIONS:
 
 8: Story Game
 
-9: About
+9: Dice Roll
+
+10: About
 """
 + Fore.LIGHTRED_EX + """
-10: Quit
+11: Quit
 
 """)
 
@@ -601,6 +642,8 @@ OPTIONS:
     elif mainmenu == 8:
       storygame()
     elif mainmenu == 9:
+        dice()
+    elif mainmenu == 10:
       clear()
       input("""
 
@@ -633,7 +676,7 @@ Press enter to continue...
 
 # sad to see you go :(
       options()
-    elif mainmenu == 10:
+    elif mainmenu == 11:
       clear()
       print(f"Sad to see you go... goodbye {name} ")
       time.sleep(3)
@@ -651,3 +694,5 @@ while True:
 # Prints shutting down if a error happens
 
 print("\n\n\n\n\n\n\n\n\n\nShutting down")
+
+
