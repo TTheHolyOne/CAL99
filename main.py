@@ -21,7 +21,14 @@ But as of now I am(Jacob) is teaching Samuel Python and I am not exactly worried
 import string # for password gen
 import random # for ran num guesser, password gen, 8ball
 from random import randint, choice # more for rannum guesser, password gen, 8ball
+
+
+# If you are running this program via repl.it please go into shell and enter this:
+#    pip install google_trans_new
+
 from google_trans_new import google_translator # for translator
+
+
 import sys # for the overall program
 import os # for the overall program
 import pyfiglet # just for fun
@@ -350,12 +357,67 @@ def googletranslator():
     # Languages you can choose from
 
 		language = {'af': 'afrikaans', 'sq': 'albanian', 'am': 'amharic', 'ar': 'arabic', 'hy': 'armenian', 'az': 'azerbaijani', 'eu': 'basque', 'be': 'belarusian', 'bn': 'bengali', 'bs': 'bosnian', 'bg': 'bulgarian', 'ca': 'catalan', 'ceb': 'cebuano', 'ny': 'chichewa', 'zh-cn': 'chinese (simplified)', 'zh-tw': 'chinese (traditional)', 'co': 'corsican', 'hr': 'croatian', 'cs': 'czech', 'da': 'danish', 'nl': 'dutch', 'en': 'english', 'eo': 'esperanto', 'et': 'estonian', 'tl': 'filipino', 'fi': 'finnish', 'fr': 'french', 'fy': 'frisian', 'gl': 'galician', 'ka': 'georgian', 'de': 'german', 'el': 'greek', 'gu': 'gujarati', 'ht': 'haitian creole', 'ha': 'hausa', 'haw': 'hawaiian', 'iw': 'hebrew', 'hi': 'hindi', 'hmn': 'hmong', 'hu': 'hungarian', 'is': 'icelandic', 'ig': 'igbo', 'id': 'indonesian', 'ga': 'irish', 'it': 'italian', 'ja': 'japanese', 'jw': 'javanese', 'kn': 'kannada', 'kk': 'kazakh', 'km': 'khmer', 'ko': 'korean', 'ku': 'kurdish (kurmanji)', 'ky': 'kyrgyz', 'lo': 'lao', 'la': 'latin', 'lv': 'latvian', 'lt': 'lithuanian', 'lb': 'luxembourgish', 'mk': 'macedonian', 'mg': 'malagasy', 'ms': 'malay', 'ml': 'malayalam', 'mt': 'maltese', 'mi': 'maori', 'mr': 'marathi', 'mn': 'mongolian', 'my': 'myanmar (burmese)', 'ne': 'nepali', 'no': 'norwegian', 'ps': 'pashto', 'fa': 'persian', 'pl': 'polish', 'pt': 'portuguese', 'pa': 'punjabi', 'ro': 'romanian', 'ru': 'russian', 'sm': 'samoan', 'gd': 'scots gaelic', 'sr': 'serbian', 'st': 'sesotho', 'sn': 'shona', 'sd': 'sindhi', 'si': 'sinhala', 'sk': 'slovak', 'sl': 'slovenian', 'so': 'somali', 'es': 'spanish', 'su': 'sundanese', 'sw': 'swahili', 'sv': 'swedish', 'tg': 'tajik', 'ta': 'tamil', 'te': 'telugu', 'th': 'thai', 'tr': 'turkish', 'uk': 'ukrainian', 'ur': 'urdu', 'uz': 'uzbek', 'vi': 'vietnamese', 'cy': 'welsh', 'xh': 'xhosa', 'yi': 'yiddish', 'yo': 'yoruba', 'zu': 'zulu', 'fil': 'Filipino', 'he': 'Hebrew'}
-		print(language)                                                                   
+		print(language)                                             
 	elif options == 3:
 		options()
 	else:
 		print('\nI\'m not sure what you mean') 
 
+
+# Story Game program will take inputs from user and make it into a Story 
+def storygame():
+
+  # asks for a name
+
+  name = input('Please enter a name! \n')
+  # asks for the age
+
+  age = int(input('Please enter a age! \n'))
+
+  #asks for the food you like to eat
+
+  namefood = input('Please enter what you like to eat! \n')
+
+  # asks for the dogs name
+
+  petname = input("Please enter your dogs name! \n")
+
+  # Asks for what your dog likes to eat
+
+  dogfood = input('Please enter what your dog likes to eat! \n')
+
+  # asks for what u call ur house
+
+  house = input('Please enter what you call your house! \n')
+
+# Choose a story you want to read
+
+  option = input('Please enter what story you want to read \n1 - Normal \n2 - Strange\n')
+
+# The first story
+
+  if option == '1':
+
+    # normal story
+
+    qp = input(f'My name is {name} and I am '+ str({age}) + ' years old. I have a dog named {petname}. My dog likes to eat {dogfood}. I love to eat {namefood}!\n I call my lovely house {house}\n\n')
+  elif option == '2':
+
+    # making the inputs uppercase all letters
+
+    name = name.upper()
+    namefood = namefood.upper()
+    petname = petname.upper()
+    dogfood = dogfood.upper()
+    house = house.upper()
+
+    # Story number 2
+
+    # weird story
+
+    qp = print(f'My nameee is {name} and I hunt and growl for {namefood}. I have A servant named {petname}.\nI eat {dogfood} with my dog at times... I live in a red place where I call {house}')
+  input("Press enter to quit..")
+  options()
 
 # Greeting
 
@@ -405,10 +467,12 @@ OPTIONS:
 
 7: Translator
 
-8: About
+8: Story Game
+
+9: About
 """
 + Fore.LIGHTRED_EX + """
-9: Quit
+10: Quit
 
 """)
 
@@ -429,6 +493,8 @@ OPTIONS:
     elif mainmenu == 7:
       googletranslator()
     elif mainmenu == 8:
+      storygame()
+    elif mainmenu == 9:
       clear()
       input("""
 
@@ -461,13 +527,14 @@ Press enter to continue...
 
 # sad to see you go :(
       options()
-    elif mainmenu == 9:
+    elif mainmenu == 10:
       clear()
       print(f"Sad to see you go... goodbye {name} ")
       time.sleep(3)
       sys.exit()
     else:
       options()
+options()
 while True:
   input('Press enter to continue')
   options()
